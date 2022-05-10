@@ -1,0 +1,36 @@
+#navbarNav{
+    justify-content: right;
+    display: flex;
+    align-items: center;
+}
+.navbar-light{
+    background-color: rgb(205, 112, 50);
+}
+.nav-item{
+    border: 1px;
+    width: fit-content;
+    border-style: ridge;
+    border-radius: 1rem;
+    white-space: normal;
+
+}
+span.i{
+    color: rgb(223, 10, 10);
+    font-family: "Trebuchet MS", Verdana, cursive;
+    font-size: 40px;
+}
+.itwinetech{
+    width: 100px;
+}
+
+#navbarNav .home_icon button{
+    border: none;
+    background: none;
+    color: rgb(93, 25, 107);
+  
+  
+}
+.nav-item{
+    background-color: rgb(161, 46, 136);
+    color: azure;
+}

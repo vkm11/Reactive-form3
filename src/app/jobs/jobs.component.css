@@ -1,0 +1,23 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    display: flex;
+    white-space: pre-line;
+    padding-left: 0%;
+
+    
+}
+.cardimg{
+  
+    height: 200px;
+}
+.heading{
+    text-align: center;
+    color: red;
+    font-size: 5rem;
+}
+.nav-item{
+    background-color: rgb(255, 0, 179);
+}

@@ -1,0 +1,72 @@
+<!-- <p>registerform works!</p> -->
+<!-- <p>registerform works!</p> -->
+<div class="container mt-5">
+    <form class="content" [formGroup]="registerForm" (ngSubmit)="submitData()">
+
+        <!-- <h3 class="text-center">Register Form</h3> -->
+        <h3 class="custom1">Register Form</h3>
+
+        <div class="row">
+            <!-- firstName -->
+            <diV class="mt-2 mb-3 col-lg-6 col-6 ">
+                <label class="form-label">Enter First Name</label>
+                <input type="text" formControlName="firstName" class="form-center" placeholder="First Name">
+
+                <!-- display error start -->
+                <div *ngIf="firstname.invalid && (firstname.touched || firstname.dirty)">
+                    <span class="error" *ngIf="firstname.errors?.required">*First Name is Required</span>
+                    <span class="error" *ngIf="firstname.errors?.pattern">*Enter only character</span>
+                </div>
+                <!-- display error end -->
+            </diV>
+
+            <!-- lastname -->
+            <diV class="mt-2 mb-2 col-lg-6 col-6">
+                <label class="form-label">Enter Last Name</label>
+                <input type="text" formControlName="lastName" class="form-center" placeholder="Last Name">
+                
+                <!-- display error start -->
+                <div *ngIf="lastname.invalid && (lastname.touched || lastname.dirty)">
+                    <span class="error" *ngIf="lastname.errors?.required">*Last Name is Required.</span>
+                    <span class="error" *ngIf="lastname.errors?.pattern">*Enter only character.</span>
+                </div>
+                <!-- display error end -->
+            </diV>
+
+            <!-- emailid -->
+            <diV class="mt-2 mb-2 col-lg-6 col-6">
+                <label class="form-label">Enter Email Address</label>
+                <input type="text" formControlName="emailId" class="form-center" placeholder="Email Id">
+
+                <!-- display error start -->
+                <div *ngIf="emailid.invalid && (emailid.touched || emailid.dirty)">
+                    <span class="error" *ngIf="emailid.errors?.required">*Email_Id is Required.</span>
+                    <span class="error" *ngIf="emailid.errors?.pattern">*Enter valid Email Address.</span>
+                </div>
+                <!-- display error end -->
+            </diV>
+
+            <!-- mobilenumber -->
+            <div class="mt-2 mb-2 col-lg-6 col-6">
+                <label class="form-label">Enter Mobile Number</label>
+                <input type="text" formControlName="mobileNumber" class="form-center" placeholder="Mobile Number">
+
+                <!-- display error start -->
+                <div *ngIf="mobilenumber.invalid && (mobilenumber.touched || mobilenumber.dirty)">
+                    <span class="error" *ngIf="mobilenumber.errors?.required">*mobile number is Required.</span>
+                    <span class="error" *ngIf="mobilenumber.errors?.pattern">*Please, Enter 10 digit Mobile
+                        Number.</span>
+                </div>
+                <!-- display error end -->
+            </div>
+            <br>
+            <br>
+            <pre></pre>
+            <!-- submit -->
+            <div class="text-center">
+                <button class="btn btn-3" [disabled]="registerForm.invalid">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</div>

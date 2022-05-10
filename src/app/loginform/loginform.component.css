@@ -1,0 +1,29 @@
+.content{
+    max-width: 600px;
+    margin: auto;
+    /* background-color: #fff; */
+    padding: 2% 2%;
+}
+.custom1{
+    text-align: center;
+    padding: 3% 3% 3% 3%;
+    color: rgb(255, 60, 0)
+    
+}
+.form-label{
+    color: white;
+}
+.btn{
+    color: white;
+}
+
+.error{
+    color: red;
+}
+.container{
+    border-style: ridge;
+    position: relative;
+    margin: auto;
+    width: fit-content;
+    background-image: url("../../assets/Image/img1.jpg");
+}

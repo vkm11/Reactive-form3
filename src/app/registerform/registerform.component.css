@@ -1,0 +1,33 @@
+.content{
+    max-width: 600px;
+    margin: auto;
+    /* background-color: #fff; */
+    padding: 2% 2%;
+   
+}
+button{
+    background-color: blue;
+    color: #fff;
+}
+button:hover{
+    color:#fff;
+}
+.error{
+    color: red;
+}
+.custom1{
+    text-align: center;
+    color: rgb(255, 60, 0)
+}
+.form-label{
+    color: white;
+}
+.container{
+    border-style: ridge;
+    position: relative;
+    margin: auto;
+    width: max-content;
+    
+    background-image: url("../../assets/Image/img1.jpg");
+
+}

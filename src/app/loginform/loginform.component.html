@@ -1,0 +1,44 @@
+<!-- <p>loginform works!</p> -->
+<div class="container mt-5">
+
+    <!-- <h3 class="text-center">Register Form</h3> -->
+    <h3 class="custom1">Login Form</h3>
+  
+    <form class="content" [formGroup]="Loginform" (ngSubmit)="submitData()">
+      <div class="row">
+  
+        <div class="mt-2 mb-3">
+          <label class="form-label">Email address</label>
+          <input type="email" class="form-control" formControlName="emailId" placeholder="Enter Email">
+  
+          <div *ngIf="emailid.invalid && (emailid.touched || emailid.dirty)">
+            <span class="error" *ngIf="emailid.errors?.required">*Email_Id is Required.</span>
+            <span class="error" *ngIf="emailid.errors?.pattern">*Enter valid Email Address.</span>
+          </div>
+        </div>
+  
+        <div class="mt-2 mb-3">
+          <label class="form-label">Password</label>
+          <input type="password" class="form-control" formControlName="Password" placeholder="Enter Password">
+  
+          <div *ngIf="password.invalid && (password.touched || password.dirty)">
+            <span class="error" *ngIf="password.errors?.required">*Password is Required.</span>
+            <span class="error" *ngIf="password.errors?.pattern">*Enter valid password .</span>
+          </div>
+  
+        </div>
+  
+        <div class="text-center">
+          <button type="submit" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
+  
+        </div>
+  
+        <div class="btn">
+          <a class="btn btn-3" routerLink="/register">Register Here</a>
+          <!-- <a [routerLink]="['/app/loginform/']" queryParamsHandling="merge">Login</a> -->
+        </div>
+      </div>
+    </form>
+  
+  
+  </div>
