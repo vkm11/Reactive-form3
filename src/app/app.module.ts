@@ -11,7 +11,7 @@ import { JobsComponent } from './jobs/jobs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{ MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FooterComponent } from './footer/footer.component';
+
 
 
 
@@ -24,7 +24,6 @@ import { FooterComponent } from './footer/footer.component';
     AboutComponent,
     HomeComponent,
     JobsComponent,
-    FooterComponent
  
   ],
   imports: [
