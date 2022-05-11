@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +10,7 @@ export class AppComponent {
   title(title: any) {
     throw new Error('Method not implemented.');
   }
+
   // title = 'Reactive-form';
   constructor(private router:Router){
     
@@ -16,4 +18,6 @@ export class AppComponent {
   // btnClick(){
   //   this.router.navigate(['/registerform']);
   // }
+
+
 }

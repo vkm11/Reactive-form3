@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+    white-space: pre-line;
+    padding-left: 0%;
+
+    
+}
+.heading{
+    text-align: center;
+    color: red;
+    font-size: 3rem;
+}
+.cardimg{
+    width: 319px;
+    height: 350px;
+}

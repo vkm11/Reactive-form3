@@ -6,11 +6,15 @@ import { AppComponent } from './app.component';
 import { LoginformComponent } from './loginform/loginform.component';
 import { RegisterformComponent } from './registerform/registerform.component';
 import { AboutComponent } from './about/about.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent, } from './home/home.component';
 import { JobsComponent } from './jobs/jobs.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import{ MatIconModule } from '@angular/material/icon';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FooterComponent } from './footer/footer.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterformComponent,
     AboutComponent,
     HomeComponent,
-    JobsComponent
+    JobsComponent,
+    FooterComponent
+ 
   ],
   imports: [
     BrowserModule,
@@ -27,7 +33,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+   
+    
+   
+
   ],
   providers: [],
   bootstrap: [AppComponent]

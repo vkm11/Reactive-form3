@@ -2,9 +2,11 @@
     justify-content: right;
     display: flex;
     align-items: center;
+  
 }
 .navbar-light{
     background-color: rgb(205, 112, 50);
+   
 }
 .nav-item{
     border: 1px;
@@ -13,14 +15,6 @@
     border-radius: 1rem;
     white-space: normal;
 
-}
-span.i{
-    color: rgb(223, 10, 10);
-    font-family: "Trebuchet MS", Verdana, cursive;
-    font-size: 40px;
-}
-.itwinetech{
-    width: 100px;
 }
 
 #navbarNav .home_icon button{
@@ -33,4 +27,8 @@ span.i{
 .nav-item{
     background-color: rgb(161, 46, 136);
     color: azure;
+}
+.logo{
+    width: 100px;
+    height: 80px;
 }
