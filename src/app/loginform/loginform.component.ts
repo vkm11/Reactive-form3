@@ -21,22 +21,23 @@ export class LoginformComponent implements OnInit {
     });
   }
 
-  // submit function
-  // submitData(){
-  //   console.log(this.Loginform.value);
+// submit function
+// submitData(){
+//   console.log(this.Loginform.value);
 
-  // }
-  // submit function
-  submitData() {
-    console.log(this.Loginform.value);
+// }
+// submit function
+submitData() {
+  console.log(this.Loginform.value);
 
 
-    if (this.Loginform.valid) {
-      alert(`Login Successfully`);
-      this.Loginform.reset();  // reset form value
-    }
-
+  if (this.Loginform.valid) {
+    alert(`Login Successfully`);
+    this.Loginform.reset();  // reset form value
   }
+
+}
+
 
   get emailid() { return this.Loginform.get('emailId'); } //emailId
   get password() { return this.Loginform.get('Password'); } //password
