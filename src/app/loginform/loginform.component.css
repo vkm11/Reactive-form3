@@ -27,3 +27,18 @@
     width: fit-content;
     background-image: url("../../assets/Image/img1.jpg");
 }
+.checkbox{
+    color: white;
+    text-indent: 1rem;
+    
+}
+label {
+    color: #666;
+    font-size: 1rem;
+    text-indent: 2px;
+    size: 2rem;
+}
+input#rememberMe{
+    width: 15px;
+    height: 15px;
+}

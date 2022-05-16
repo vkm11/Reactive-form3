@@ -27,9 +27,14 @@
           </div>
   
         </div>
-  
+        <div class="box">
+          <input type="checkbox" value="Rememberme" id="rememberMe">
+          <label for="rememberMe" id="rememb">Remember me</label>
+        </div>
+        <!-- <input type="submit" value="Login" onclick="lsRememberMe()"> -->
+
         <div class="text-center">
-          <button type="submit" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
+          <button type="submit" onclick="RememberMe()" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
   
         </div>
   
