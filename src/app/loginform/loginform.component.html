@@ -4,7 +4,7 @@
     <!-- <h3 class="text-center">Register Form</h3> -->
     <h3 class="custom1">Login Form</h3>
   
-    <form class="content" [formGroup]="Loginform" (ngSubmit)="submitData()">
+    <form class="content" (onload)="getcookieData()" [formGroup]="Loginform" (ngSubmit)="submitData()" >
       <div class="row">
   
         <div class="mt-2 mb-3">
@@ -27,14 +27,16 @@
           </div>
   
         </div>
+
+        <!-- Remember me checkbox start  -->
         <div class="box">
-          <input type="checkbox" value="Rememberme" id="rememberMe">
-          <label for="rememberMe" id="rememb">Remember me</label>
+          <input type="checkbox"  name="rememberme" id="rememberme" >
+          <label class="form-label">Remember me</label>
         </div>
-        <!-- <input type="submit" value="Login" onclick="lsRememberMe()"> -->
+        <!-- Remember me checkbox end -->
 
         <div class="text-center">
-          <button type="submit" onclick="RememberMe()" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
+          <button type="submit" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
   
         </div>
   
@@ -44,6 +46,6 @@
         </div>
       </div>
     </form>
-  
-  
   </div>
+
+

@@ -27,7 +27,7 @@ button:hover{
     position: relative;
     margin: auto;
     width: max-content;
-    
+    padding: 20px;
     background-image: url("../../assets/Image/img1.jpg");
 
 }
