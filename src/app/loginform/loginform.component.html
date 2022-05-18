@@ -31,14 +31,14 @@
 
         <!-- Remember me checkbox start  -->
         <div class="box">
-          <input type="checkbox"  name="rememberme" id="rememberme" onclick="setCookie()">
+          <input type="checkbox"  name="rememberme" id="rememberme" (click)="RememberMe()">
           <label class="form-label">Remember me</label>
         </div>
-        <!-- <button type="submit" (onload)="getcookieData()" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button> -->
+        
         <!-- Remember me checkbox end -->
 
         <div class="text-center">
-          <button type="submit" (onload)="getcookieData()" [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
+          <button type="submit"  [disabled]="Loginform.invalid" class="btn btn-primary" routerLink="home"  >Submit</button>
   
         </div>
   
