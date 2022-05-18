@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-loginform',
@@ -8,10 +9,10 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginformComponent implements OnInit {
 
-  constructor() { }
+  constructor( private cookie:CookieService) { }
   Loginform: any; //form
 
-  ngOnInit(): void {
+  ngOnInit(){
     this.Loginform = new FormGroup({
       "emailId": new FormControl(null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       // "emailId":  new FormControl(null,[Validators.required,Validators.email]),
@@ -23,12 +24,15 @@ export class LoginformComponent implements OnInit {
 
   //  Remember me checkbox start 
 
-  setcookie() {
+  setCookie(){
     var e = (document.getElementById('username') as HTMLTextAreaElement).value;
     var p = (document.getElementById('password')as HTMLTextAreaElement).value;
 
-    document.cookie = "emailId =" + e + "; path: 'login', component: LoginformComponent"
-    document.cookie = "Password =" + p + "; path: 'login', component: LoginformComponent"
+    document.cookie = "emailId =" + e + "; path = http://localhost:4200/login/" 
+    document.cookie = "Password =" + p + "; path = http://localhost:4200/login/"
+
+    // document.cookie = "emailId =" + e + "; path: 'login', component: LoginformComponent"
+    // document.cookie = "Password =" + p + "; path: 'login', component: LoginformComponent"
   }
   getcookieData() {
     console.log(document.cookie);
@@ -62,12 +66,11 @@ export class LoginformComponent implements OnInit {
 
   // }
   // submit function
-  submitData(): void {
+  submitData(){
     console.log(this.Loginform.value);
 
-
     if (this.Loginform.valid) {
-      alert(`Login Successfully`);
+      alert('Login Successfully');
       this.Loginform.reset();  // reset form value
     }
 

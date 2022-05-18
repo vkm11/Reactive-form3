@@ -1,6 +1,6 @@
 #navbarNav{
     justify-content: right;
-    display: flex;
+    /* display: flex; */
     align-items: center;
   
 }
@@ -16,14 +16,6 @@
     border-radius: 1rem;
     white-space: normal;
 
-}
-
-#navbarNav .home_icon button{
-    border: none;
-    background: none;
-    color: rgb(93, 25, 107);
-  
-  
 }
 .nav-item{
     background-color: rgb(161, 46, 136);
