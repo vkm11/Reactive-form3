@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
+import { environment } from 'src/environments/environment';
+import { pathToFileURL } from 'url';
 
 @Component({
   selector: 'app-loginform',
@@ -8,11 +10,12 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./loginform.component.css']
 })
 export class LoginformComponent implements OnInit {
+  f: any;
 
-  constructor( private cookie:CookieService) { }
+  constructor(private cookie: CookieService) { }
   Loginform: any; //form
 
-  ngOnInit(){
+  ngOnInit() {
     this.Loginform = new FormGroup({
       "emailId": new FormControl(null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]),
       // "emailId":  new FormControl(null,[Validators.required,Validators.email]),
@@ -20,30 +23,21 @@ export class LoginformComponent implements OnInit {
       "Password": new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
 
     });
+    this.checkCookie();
   }
 
   //  Remember me checkbox start 
 
-  setCookie(){
-    var e = (document.getElementById('username') as HTMLTextAreaElement).value;
-    var p = (document.getElementById('password')as HTMLTextAreaElement).value;
 
-    document.cookie = "emailId =" + e + "; path = http://localhost:4200/login/" 
-    document.cookie = "Password =" + p + "; path = http://localhost:4200/login/"
 
-    // document.cookie = "emailId =" + e + "; path: 'login', component: LoginformComponent"
-    // document.cookie = "Password =" + p + "; path: 'login', component: LoginformComponent"
-  }
-  getcookieData() {
-    console.log(document.cookie);
-    var user = getcookie("emailId");
-    var pswd = getcookie('Password');
-
-    var e = (document.getElementById('username') as HTMLTextAreaElement).value;
-    var p = (document.getElementById('password') as HTMLTextAreaElement).value;
+  setCookie(cname: any, cvalue: any, exdays: any, path: any) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=" + path;
   }
 
-  getCookie(cname: string) {
+  getCookie(cname: any) {
     var name = cname + "=";
     var decodedcookie = decodeURIComponent(document.cookie);
     var ca = decodedcookie.split(';');
@@ -58,7 +52,76 @@ export class LoginformComponent implements OnInit {
     }
     return "";
   }
-//  Remember me checkbox End
+
+  checkCookie() {
+    let user = this.getCookie("username");
+    let password = this.getCookie("password");
+
+    // password decrypt
+    let reverse = atob(password);
+    let splitvalue = reverse.split("%");
+    var deCryptpassword: any;
+    var deTransform: any = [];
+
+    splitvalue.forEach((value: any) => {
+      let math = (parseInt(value) + 6) / 12;
+      deTransform.push(math);
+      let joinVal = deTransform.json();
+      deCryptpassword = joinVal.replace(/,/g, '');
+    });
+
+    if (user != '' && password != '') {
+      (document.getElementById("remeberme") as HTMLInputElement).checked = true;
+      this.Loginform.setValue({
+        username: user,
+        password: deCryptpassword
+      });
+
+    } else {
+      (document.getElementById("remeberme") as HTMLInputElement).checked = false;
+      this.Loginform.setValue({
+        username: '',
+        password: ''
+      });
+    }
+
+  }
+  RememberMe() 
+  {
+    let checkMe = document.getElementById('rememberme') as HTMLInputElement;
+    let data = checkMe!.checked;
+    if (data) 
+    {
+      const path = environment.baseurlCookie;
+
+      const username: any = this.f.username.value;
+      const password: any = this.f.password.value;
+
+      let arrFromStrPass = [...password];
+
+      var enCryptpassword: any;
+      var enTransform: any = [];
+      arrFromStrPass.forEach((value: any) => 
+      {
+        let final = (value * 12) - 6;
+        enTransform.push(final);
+        enCryptpassword = btoa(enTransform.json('%'));
+      
+      });
+      if ((username && enCryptpassword) != ('' || undefined || null || '')) 
+      {
+        this.setCookie("username", username, 30, path);
+        this.setCookie("password", enCryptpassword, 30, path);
+      }
+    } else {
+      document.cookie = 'username="";expires=Thu, 01 jan 1970 00:00:01 GMT;';
+      document.cookie = 'password="";expires=Thu, 01 jan 1970 00:00:01 GMT;';
+    }
+  }
+
+
+
+  //  Remember me checkbox End
 
   // submit function
   // submitData(){
@@ -66,7 +129,7 @@ export class LoginformComponent implements OnInit {
 
   // }
   // submit function
-  submitData(){
+  submitData() {
     console.log(this.Loginform.value);
 
     if (this.Loginform.valid) {
