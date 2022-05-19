@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { environment } from 'src/environments/environment';
-import { pathToFileURL } from 'url';
+
 
 @Component({
   selector: 'app-loginform',
@@ -11,8 +11,14 @@ import { pathToFileURL } from 'url';
 })
 export class LoginformComponent implements OnInit {
   f: any;
+  cookieValue: any;
+  // cookie: any;
 
-  constructor(private cookie: CookieService) { }
+  private emailId="";
+  private Password="";
+  
+
+  constructor(private cookieService: CookieService) { }
   Loginform: any; //form
 
   ngOnInit() {
@@ -23,7 +29,11 @@ export class LoginformComponent implements OnInit {
       "Password": new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
 
     });
-    this.checkCookie();
+    // this.checkCookie();
+    this.cookieService.set('emailId', 'Password'); 
+    this.cookieValue = this.cookieService.get('emailId');
+    // this.cookieService.set( 'names', 'Test Cookie' ); // To Set Cookie
+    // this.cookieValue = this.cookieService.get('names'); // To Get Cookie
   }
 
   //  Remember me checkbox start 
@@ -86,6 +96,8 @@ export class LoginformComponent implements OnInit {
     }
 
   }
+
+  
   RememberMe() 
   {
     let checkMe = document.getElementById('rememberme') as HTMLInputElement;
@@ -150,4 +162,3 @@ function emailId(emailId: any) {
 function getcookie(Password: string) {
   throw new Error('Function not implemented.');
 }
-

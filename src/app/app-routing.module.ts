@@ -8,14 +8,14 @@ import { JobsComponent } from './jobs/jobs.component';
 import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
-  // { path: 'login', component: LoginformComponent},
+  { path: 'login', component: LoginformComponent},
   { path: '', component: LoginformComponent},
   { path: 'register', component: RegisterformComponent},
   { path: 'home', component: HomeComponent },
   { path: 'jobs', component: JobsComponent },
 
   { path: 'about', component: AboutComponent},
-  { path: 'login', component: LoginformComponent},
+  
 
 ];
 

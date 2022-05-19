@@ -31,7 +31,10 @@ import { CookieService } from 'ngx-cookie-service';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    MatIconModule
+    MatIconModule,
+    
+    
+    
   ],
   providers: [ CookieService ],
   bootstrap: [AppComponent]
