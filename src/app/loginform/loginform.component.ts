@@ -16,7 +16,6 @@ export class LoginformComponent implements OnInit {
 
   private emailId="";
   private Password="";
-  
 
   constructor(private cookieService: CookieService) { }
   Loginform: any; //form

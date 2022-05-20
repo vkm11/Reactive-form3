@@ -2,6 +2,9 @@
     justify-content: right;
     /* display: flex; */
     align-items: center;
+    position:relative;
+   
+
   
 }
 .navbar-light{
